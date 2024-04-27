@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+    <title>Add Notes</title>
+  </head>
+  <body>
+
+    <% if (locals.id){ %>
+      <div class="container mt-3 ">
+        <form action="/notes/edit/<%= id %>" method="post" > 
+     
+          <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input
+              type="text"
+              class="form-control"
+              id="heading"
+              name="heading"
+              aria-describedby="heading"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="body" class="form-label">Body</label>
+            <textarea class="form-control" id="description" name="description"></textarea>
+          </div>
+          <div class="mb-3">
+            <button class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    <% } %>
+      
+
+  </body>
+</html>
