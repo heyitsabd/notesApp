@@ -23,10 +23,14 @@ app.use(express.static(path.resolve('./public/images')))
 
 app.get('/', async(req,res)=>{
      if(!req.user) return res.redirect('/user/login');
-     const notes = await Notes.find({createdBy:req.user._id})
+     const notes = await Notes.find({ createdBy: req.user._id });
+     const sharednotes = await Notes.find({ sharedWith: req.user._id });
+     const history = await Notes.find({})
+
     res.render('home',{
         user: req.user,
-        notes: notes
+        notes: notes,
+        sharednotes:sharednotes
     })
 })
 

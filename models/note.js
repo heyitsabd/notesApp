@@ -11,7 +11,11 @@ const noteSchema = new Schema({
     createdBy:{
         type: Schema.Types.ObjectId,
         ref:'user'
-    }
+    },
+      sharedWith: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Notes'
+      }]
 },{
     timestamps:true
 })
